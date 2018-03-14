@@ -5,3 +5,6 @@ services:
     build: .
     ports:
       - "3000:3000"
+    volumes:
+      - ./client:/src
+    command: bash -c "npm install && npm run build && npm run dev"

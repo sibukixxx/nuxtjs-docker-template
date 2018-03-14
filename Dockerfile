@@ -1,13 +1,10 @@
 FROM node:latest
 
-RUN mkdir -p /src
-COPY ./client ./src
-WORKDIR /src
+RUN ["apt-get", "update"]
+RUN ["apt-get", "install", "-y", "vim"]
 
-RUN yarn 
-RUN yarn run build
-#RUN yarn run build
+RUN mkdir -p /src
+WORKDIR /src
 
 EXPOSE 3000
 ENV HOST=0.0.0.0 
-CMD ["yarn", "start"]
